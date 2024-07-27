@@ -1,6 +1,6 @@
 pyscenic grn \
 --num_workers 5 \
---output mz_rej.tsv \
+--output df.tsv \
 --method grnboost2 \
-mz_rej.loom \
+df.loom \
 mm_mgi_tfs.txt
