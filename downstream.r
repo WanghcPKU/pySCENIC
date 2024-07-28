@@ -37,8 +37,12 @@ rownames(binary) <- rownames(df3)
 
 write.csv(binary,"binary_matrix.csv") 
 
+anno_df <- data.frame(df$group)
+unique(cm.ana$group)
+rownames(anno_df) <- rownames(df@meta.data)
+binary_filter <- binary[rowSums(binary) > 200, ] ###过滤一下
 pdf("./binary_heatmap.pdf",width=10 ,height=20)
-pheatmap(binary,
+pheatmap(binary,annotation_col=anno_df,
 show_colnames=F,cluster_cols = FALSE)
 dev.off()
 
